@@ -1,0 +1,8 @@
+name        = "aviosuperficie"
+license     = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Tema Hugo per aviosuperfici — dark, elegante, aeronautico"
+homepage    = "https://example.com"
+tags        = ["aviation", "dark", "minimal", "italian"]
+features    = ["navbar", "hero", "info-strip", "responsive"]
+min_version = "0.110.0"

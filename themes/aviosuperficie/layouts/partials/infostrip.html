@@ -1,0 +1,30 @@
+<div class="infostrip">
+  <div class="infostrip__item">
+    <i class="ti ti-dashboard" aria-hidden="true"></i>
+    <div>
+      <span class="infostrip__label">Pista</span>
+      <span class="infostrip__value">{{ .Site.Params.runway }}</span>
+    </div>
+  </div>
+  <div class="infostrip__item">
+    <i class="ti ti-radio" aria-hidden="true"></i>
+    <div>
+      <span class="infostrip__label">Frequenza</span>
+      <span class="infostrip__value">{{ .Site.Params.frequency }}</span>
+    </div>
+  </div>
+  <div class="infostrip__item">
+    <i class="ti ti-clock" aria-hidden="true"></i>
+    <div>
+      <span class="infostrip__label">Operativa</span>
+      <span class="infostrip__value">{{ .Site.Params.schedule }}</span>
+    </div>
+  </div>
+  <div class="infostrip__item">
+    <i class="ti ti-map-pin" aria-hidden="true"></i>
+    <div>
+      <span class="infostrip__label">Elevazione</span>
+      <span class="infostrip__value">{{ .Site.Params.elevation }}</span>
+    </div>
+  </div>
+</div>

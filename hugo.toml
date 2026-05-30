@@ -1,0 +1,56 @@
+baseURL = 'https://www.aviocaipoli.it/'
+locale = 'it-it'
+title = 'Aviosuperficie Gallicano "Nino Petrini"'
+theme = 'aviosuperficie'
+
+defaultContentLanguage = "it"
+
+[params]
+siteName       = "Aero Sud"
+siteSubtitle   = "Aviosuperficie"
+tagline        = "Vola con libertà"
+taglineSub     = "Aperta all'aviazione generale dal 1987"
+icao           = "XXXX"
+runway         = "09 / 27 · Erba"
+frequency      = "122.000 MHz"
+schedule       = "SS – SR (PPR)"
+elevation      = "450 ft AMSL"
+footerCopy     = "© 2026 Aviosuperficie · Tutti i diritti riservati"
+
+[[params.nav]]
+name = "Home"
+url  = "/"
+
+[[params.nav]]
+name = "Pista"
+url  = "/pista/"
+
+[[params.nav]]
+name = "Servizi"
+url  = "/servizi/"
+
+[[params.nav]]
+name = "Meteo"
+url  = "/meteo/"
+
+[[params.nav]]
+name = "Contatti"
+url  = "/contatti/"
+
+[[params.navCta]]
+name = "NOTAM"
+url  = "/notam/"
+
+[[params.footerLinks]]
+name = "Privacy"
+url  = "/privacy/"
+
+[[params.footerLinks]]
+name = "Cookie"
+url  = "/cookie/"
+
+[[params.footerLinks]]
+name     = "AIP Italy"
+url      = "https://www.enav.it/aip"
+external = true
+

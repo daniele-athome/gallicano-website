@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span aria-hidden="true"> / </span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="page-hero__sub">{{ . }}</p>
+    {{ end }}
+  </div>
+</section>
+
+<article class="page-body container">
+  {{ .Content }}
+</article>
+
+{{ if .Params.showInfoStrip }}
+  {{ partial "infostrip.html" . }}
+{{ end }}
+
+{{ end }}

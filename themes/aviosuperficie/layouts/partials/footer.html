@@ -1,0 +1,14 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__copy">{{ .Site.Params.footerCopy }}</span>
+    <nav class="footer__links" aria-label="Footer">
+      {{ range .Site.Params.footerLinks }}
+      <a href="{{ .url }}"
+         class="footer__link"
+         {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }}>
+        {{ .name }}
+      </a>
+      {{ end }}
+    </nav>
+  </div>
+</footer>

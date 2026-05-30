@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span aria-hidden="true"> / </span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="page-hero__sub">{{ . }}</p>
+    {{ end }}
+  </div>
+</section>
+
+{{ if .Content }}
+<div class="page-body container">
+  {{ .Content }}
+</div>
+{{ end }}
+
+{{ if .Pages }}
+<section class="cards-section container">
+  <div class="cards-grid">
+    {{ range $i, $page := .Pages }}
+    <article class="card">
+      <span class="card__num">{{ printf "%02d" (add $i 1) }} —</span>
+      <h2 class="card__title">{{ $page.Title }}</h2>
+      <p class="card__text">{{ $page.Description | default ($page.Summary | plainify | truncate 120) }}</p>
+      <a href="{{ $page.Permalink }}" class="card__link">Leggi <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ end }}
