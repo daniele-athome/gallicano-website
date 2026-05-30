@@ -1,43 +1,31 @@
 {{ define "main" }}
 
-<!-- ═══════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero__bg" aria-hidden="true">
     <div class="hero__grid"></div>
     <div class="hero__silhouette"></div>
   </div>
   <div class="hero__content">
-    <p class="hero__label">{{ .Site.Params.siteName }} · ICAO {{ .Site.Params.icao }}</p>
+    <p class="hero__label">{{ .Site.Params.heroSuperTitle }}</p>
     <h1 class="hero__title">{{ .Site.Params.tagline | markdownify }}</h1>
     <p class="hero__sub">{{ .Site.Params.taglineSub }}</p>
     {{ with .Site.Params.navCta }}
       {{ range . }}
-      <a href="{{ .url | relURL }}" class="hero__btn">{{ .name }} <i class="ti ti-external-link" aria-hidden="true"></i></a>
+      <a href="{{ .url | relURL }}" target="_blank" class="hero__btn">{{ .name }} <i class="ti ti-external-link" aria-hidden="true"></i></a>
       {{ end }}
     {{ end }}
   </div>
   <div class="hero__bar" aria-hidden="true"></div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     INFO STRIP
-════════════════════════════════════════════ -->
 {{ partial "infostrip.html" . }}
 
-<!-- ═══════════════════════════════════════════
-     SEZIONI HOMEPAGE (da front matter o shortcode)
-════════════════════════════════════════════ -->
 {{ if .Content }}
 <section class="page-content container">
   {{ .Content }}
 </section>
 {{ end }}
 
-<!-- ═══════════════════════════════════════════
-     CARD GRID — sezioni del sito
-════════════════════════════════════════════ -->
 <section class="cards-section container">
   <div class="cards-grid">
     {{ $sections := where .Site.RegularPages "Section" "ne" "" }}

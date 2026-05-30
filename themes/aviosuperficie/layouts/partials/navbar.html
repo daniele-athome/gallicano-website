@@ -32,7 +32,7 @@
 
       {{ with .Site.Params.navCta }}
         {{ range . }}
-        <a href="{{ .url | relURL }}" class="navbar__cta">{{ .name }}</a>
+        <a href="{{ .url | relURL }}" class="navbar__cta" target="_blank">{{ .name }}</a>
         {{ end }}
       {{ end }}
     </nav>

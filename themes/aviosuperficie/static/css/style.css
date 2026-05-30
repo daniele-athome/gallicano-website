@@ -211,7 +211,7 @@ a:hover { color: var(--text-primary); }
 /* ── HERO ───────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 20vh;
   display: flex;
   align-items: flex-end;
   padding: 5rem 2rem 4rem;

@@ -1,6 +1,5 @@
 ---
-title: "CIAONE"
-description: "A modern and cool Hugo theme with beautiful kawaii aesthetics"
+title: "Home"
 ---
 
-HOME PAGE
+HOME PAGE TODO
