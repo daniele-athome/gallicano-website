@@ -241,7 +241,7 @@ a:hover { color: var(--text-primary); }
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/images/bg_home.jpg');
+  background: url('../images/bg_home.jpg');
   background-size: cover;
   background-position: center;
   -webkit-mask-image: linear-gradient(to left, black 20%, transparent 80%);
