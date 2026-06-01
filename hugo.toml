@@ -1,4 +1,5 @@
-baseURL = 'https://www.aviocaipoli.it/'
+#baseURL = 'https://www.aviocaipoli.it/'
+baseURL = 'https://daniele-athome.github.io/gallicano-website/'
 locale = 'it-it'
 title = 'Aviosuperficie Gallicano "Nino Petrini"'
 theme = 'aviosuperficie'
