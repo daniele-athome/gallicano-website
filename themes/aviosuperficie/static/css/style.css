@@ -750,6 +750,11 @@ a:hover { color: var(--text-primary); }
   .hero { min-height: 70vh; padding-inline: 1.5rem; }
   .hero__silhouette { display: none; }
 
+  .hero__bg::after {
+    -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 80%);
+    mask-image:         linear-gradient(to bottom, black 25%, transparent 80%);
+  }
+
   .cards-section { padding-block: 3rem; }
   .cards-grid { grid-template-columns: 1fr; }
 
