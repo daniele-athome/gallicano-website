@@ -751,8 +751,13 @@ a:hover { color: var(--text-primary); }
   .hero__silhouette { display: none; }
 
   .hero__bg::after {
-    -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 80%);
-    mask-image:         linear-gradient(to bottom, black 25%, transparent 80%);
+    /* Oltre `cover` per creare eccedenza verticale: taglia cielo in alto e
+       prato in basso, lasciando in vista la fascia centrale della foto */
+    background-size: auto 150%;
+    background-position: center 80%;
+    background-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 55%);
+    mask-image:         linear-gradient(to bottom, black 25%, transparent 55%);
   }
 
   .cards-section { padding-block: 3rem; }
