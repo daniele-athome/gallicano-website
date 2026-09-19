@@ -114,7 +114,7 @@ a:hover { color: var(--text-primary); }
 
 .navbar__logo-text strong {
   font-size: 17px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -122,8 +122,8 @@ a:hover { color: var(--text-primary); }
 
 .navbar__logo-text em {
   font-style: normal;
-  font-size: 10px;
-  font-weight: 300;
+  font-size: 12px;
+  font-weight: normal;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -203,6 +203,7 @@ a:hover { color: var(--text-primary); }
   gap: 5px;
   width: 36px;
   height: 36px;
+  flex-shrink: 0;
   background: none;
   border: none;
   cursor: pointer;
@@ -692,6 +693,25 @@ a:hover { color: var(--text-primary); }
 @media (max-width: 768px) {
   .navbar__burger { display: flex; }
 
+  .navbar__inner {
+    padding-inline: 1.5rem;
+    gap: 1rem;
+  }
+
+  .navbar__logo {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .navbar__logo-text { min-width: 0; }
+
+  .navbar__logo-text strong,
+  .navbar__logo-text em {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .navbar__menu {
     display: none;
     position: absolute;
@@ -703,7 +723,7 @@ a:hover { color: var(--text-primary); }
     gap: 0;
     background: var(--bg-surface);
     border-bottom: 1px solid var(--border);
-    padding: 1rem 2rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem;
   }
 
   .navbar__menu.is-open { display: flex; }
@@ -729,6 +749,16 @@ a:hover { color: var(--text-primary); }
 
   .hero { min-height: 70vh; padding-inline: 1.5rem; }
   .hero__silhouette { display: none; }
+
+  .hero__bg::after {
+    /* Oltre `cover` per creare eccedenza verticale: taglia cielo in alto e
+       prato in basso, lasciando in vista la fascia centrale della foto */
+    background-size: auto 150%;
+    background-position: center 80%;
+    background-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 55%);
+    mask-image:         linear-gradient(to bottom, black 25%, transparent 55%);
+  }
 
   .cards-section { padding-block: 3rem; }
   .cards-grid { grid-template-columns: 1fr; }
