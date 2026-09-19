@@ -114,7 +114,7 @@ a:hover { color: var(--text-primary); }
 
 .navbar__logo-text strong {
   font-size: 17px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -122,8 +122,8 @@ a:hover { color: var(--text-primary); }
 
 .navbar__logo-text em {
   font-style: normal;
-  font-size: 10px;
-  font-weight: 300;
+  font-size: 12px;
+  font-weight: normal;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-muted);
