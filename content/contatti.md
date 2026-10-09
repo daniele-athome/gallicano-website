@@ -1,5 +1,6 @@
 ---
 title: "Contatti"
+description: "Dove trovarci, chi contattare."
 showInfoStrip: true
 ---
 
