@@ -1,0 +1,12 @@
+{{- /* Tabler icon.
+{{< icona radio >}}                        decorative
+{{< icona name="radio" label="Radio" >}}   with proper label */ -}}
+{{- $name := "" -}}{{- $label := "" -}}
+{{- if .IsNamedParams -}}
+{{- $name = .Get "name" -}}{{- $label = .Get "label" -}}
+{{- else -}}
+{{- $name = .Get 0 -}}
+{{- end -}}
+{{- if not $name -}}{{- errorf "shortcode icon: name is missing — %s" .Position -}}{{- end -}}
+{{- if $label -}}<i class="ti ti-{{ $name }}" role="img" aria-label="{{ $label }}"></i>
+{{- else -}}<i class="ti ti-{{ $name }}" aria-hidden="true"></i>{{- end -}}
