@@ -18,7 +18,7 @@ weatherUrl = "https://meteo.aviocaipoli.it"
 
 [[params.nav]]
 name = "Home"
-url  = ""
+url  = "/"
 
 [[params.nav]]
 name = "Pista"
