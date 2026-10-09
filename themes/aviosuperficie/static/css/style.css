@@ -383,6 +383,10 @@ a:hover { color: var(--text-primary); }
   color: var(--text-primary);
 }
 
+.infostrip__iconlink {
+  vertical-align: top;
+}
+
 /* ── CARD GRID ──────────────────────────────────────────────── */
 .cards-section {
   padding-block: 5rem;

@@ -15,5 +15,5 @@ rispettare il circuito e le procedure riportate nella pagina [Pista](/pista/).
 
 ### Prima di partire
 
-La [stazione meteo](https://meteo.aviocaipoli.it) installata sul campo misura vento, temperatura e pressione e li
+La [stazione meteo]({{< param weatherUrl >}}) installata sul campo misura vento, temperatura e pressione e li
 pubblica in tempo reale. È il modo più rapido per sapere cosa troverai all'arrivo — e da quale testata conviene entrare.
