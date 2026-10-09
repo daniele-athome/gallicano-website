@@ -1,0 +1,43 @@
+{{- /* Mappa OpenStreetMap del campo. Nessuna chiave API, nessuno script:
+       è l'iframe di export di openstreetmap.org.
+
+       {{< mappa >}}                    coordinate da params.runway
+       {{< mappa zoom="stretta" >}}     inquadratura più ravvicinata
+       {{< mappa zoom="larga" >}}       inquadratura più ampia
+       {{< mappa lat="41.89" lon="12.78" >}}   coordinate esplicite
+
+       Il riquadro è calcolato per riempire un 16:9 senza deformare la mappa:
+       alla nostra latitudine un grado di longitudine è circa 0,74 gradi di
+       latitudine, da cui il fattore 2,4 sulla semiampiezza orizzontale. */ -}}
+
+{{- $r := site.Params.runway -}}
+{{- $lat := $r.lat -}}
+{{- $lon := $r.lon -}}
+{{- $zoom := "media" -}}
+{{- if .IsNamedParams -}}
+  {{- with .Get "lat" }}{{ $lat = float . }}{{ end -}}
+  {{- with .Get "lon" }}{{ $lon = float . }}{{ end -}}
+  {{- with .Get "zoom" }}{{ $zoom = . }}{{ end -}}
+{{- end -}}
+
+{{- $dy := index (dict "stretta" 0.003 "media" 0.006 "larga" 0.014) $zoom -}}
+{{- if not $dy -}}
+  {{- errorf "shortcode mappa: zoom %q non valido (usa stretta, media o larga) — %s" $zoom $.Position -}}
+{{- end -}}
+{{- $dx := mul $dy 2.4 -}}
+
+{{- $bbox := printf "%.6f,%.6f,%.6f,%.6f" (sub $lon $dx) (sub $lat $dy) (add $lon $dx) (add $lat $dy) -}}
+{{- $embed := printf "https://www.openstreetmap.org/export/embed.html?bbox=%s&layer=mapnik&marker=%.6f,%.6f" $bbox $lat $lon -}}
+{{- $full := printf "https://www.openstreetmap.org/?mlat=%.6f&mlon=%.6f#map=15/%.6f/%.6f" $lat $lon $lat $lon -}}
+
+<figure class="map">
+  <iframe class="map__frame"
+          src="{{ $embed | safeURL }}"
+          title="Mappa dell'aviosuperficie di Gallicano nel Lazio"
+          loading="lazy"></iframe>
+  <figcaption class="map__caption">
+    <a href="{{ $full | safeURL }}" target="_blank" rel="noopener">Ingrandisci su OpenStreetMap</a>
+    <span aria-hidden="true"> · </span>
+    <a href="{{ $r.mapsUrl }}" target="_blank" rel="noopener">Indicazioni su Google Maps</a>
+  </figcaption>
+</figure>

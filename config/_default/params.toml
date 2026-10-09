@@ -4,6 +4,8 @@
 code             = "RM24"
 locality         = "Gallicano nel Lazio (RM)"
 coordinates      = "N 41° 53' 26'' — E 12° 47' 03''"
+lat              = 41.890675
+lon              = 12.784293
 mapsUrl          = "https://www.google.com/maps/search/?api=1&query=41.890675,12.784293"
 avioportolanoUrl = "https://webaai.it/it/aviostrutture/lazio/aviocaipoli_RM24?free=1"
 elevation        = "551 ft AMSL"
