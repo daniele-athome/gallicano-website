@@ -3,3 +3,4 @@
 hugo_stats.json
 *.iml
 .idea
+hugo.local.toml
