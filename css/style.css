@@ -654,6 +654,26 @@ a:hover { color: var(--text-primary); }
   margin: 3rem 0;
 }
 
+/* ── MAPPA ──────────────────────────────────────────────────── */
+.map { margin: 2.5rem 0; }
+
+.map__frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+}
+
+.map__caption {
+  margin-top: 0.75rem;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
 /* ── 404 ────────────────────────────────────────────────────── */
 .notfound {
   display: flex;
@@ -816,6 +836,7 @@ a:hover { color: var(--text-primary); }
   .page-hero { padding: 2.5rem 0 2rem; }
   .page-body { padding-block: 2.5rem; }
   .page-content { padding-block: 3rem; }
+  .map__frame { aspect-ratio: 4 / 3; }
   .page-content > p:first-of-type { font-size: 17px; }
 
   .footer__inner { flex-direction: column; align-items: flex-start; }
