@@ -11,32 +11,26 @@ siteName = 'Aviosuperficie Aviocaipoli'
 siteSubtitle = 'Gallicano nel Lazio'
 tagline = "Aviocaipoli"
 taglineSub = "A un passo da Roma, ai piedi di Tivoli"
-icao = "RM24"
 heroSuperTitle = 'Gallicano nel Lazio · Dedicata a "Nino Petrini"'
 locationName = "Gallicano nel Lazio"
-runway = "14 / 32 · 860 m · Erba"
-frequency = "130.000 MHz"
-elevation = "551 ft AMSL"
-location = "N 41° 53' 29'' - E 12° 47' 00''"
 footerCopy = "Designed by Daniele Ricci"
 weatherUrl = "https://meteo.aviocaipoli.it"
-mapsUrl = "https://www.google.com/maps/search/?api=1&query=41.891534,12.7808601"
 
 [[params.nav]]
 name = "Home"
-url  = "/"
+url  = ""
 
 [[params.nav]]
 name = "Pista"
-url  = "/pista/"
+url  = "pista/"
 
 [[params.nav]]
 name = "Servizi"
-url  = "/servizi/"
+url  = "servizi/"
 
 [[params.nav]]
 name = "Contatti"
-url  = "/contatti/"
+url  = "contatti/"
 
 [[params.navCta]]
 name = "METEO"
@@ -45,9 +39,9 @@ url  = "https://meteo.aviocaipoli.it"
 [[params.footerLinks]]
 name = "Avioportolano"
 url  = "https://webaai.it/it/aviostrutture/lazio/aviocaipoli_RM24?free=1"
+external = true
 
 [[params.footerLinks]]
 name     = "[Pratica ENAV in corso di istruttoria]"
 url      = "https://www.enav.it/"
 external = true
-

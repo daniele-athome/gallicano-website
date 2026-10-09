@@ -1,0 +1,51 @@
+[runway]
+
+# ── Identificazione ─────────────────────────────────────────────────────────
+code             = "RM24"
+locality         = "Gallicano nel Lazio (RM)"
+coordinates      = "N 41° 53' 26'' — E 12° 47' 03''"
+mapsUrl          = "https://www.google.com/maps/search/?api=1&query=41.890675,12.784293"
+avioportolanoUrl = "https://webaai.it/it/aviostrutture/lazio/aviocaipoli_RM24?free=1"
+elevation        = "551 ft AMSL"
+status           = "Pratica ENAV in istruttoria"
+
+# ── Pista ───────────────────────────────────────────────────────────────────
+orientation = "14 / 32"
+surface     = "Erba"
+dimensions  = "860 × 60 m"
+slope       = "0,4% — trascurabile"
+tora        = "860 m entrambe le testate"
+windsocks   = "1 — a est della pista, subito a sud degli hangar"
+
+# ── Radio e operatività ─────────────────────────────────────────────────────
+frequency      = "130.000 MHz"
+radioService   = "Assente; best effort nel weekend"
+trafficAllowed = "VDS basico e avanzato"
+flightSchool   = "Assente"
+priorNotice    = "Non richiesto"
+hours          = "Alba – tramonto, VFR diurno"
+airspace       = "Classe G fino a 4000 ft AMSL — sopra: TMA Roma"
+
+# ── Quote e distanze ────────────────────────────────────────────────────────
+circuitAltitude = "1550 ft QNH"
+circuitHeight   = "1000 ft"
+circuitSide     = "sud-ovest"
+reportingRange  = "5 NM"
+noiseFloor      = "2000 ft AMSL"
+
+# ── Circuito, per testata ───────────────────────────────────────────────────
+[[runway.circuit]]
+runway  = "14"
+pattern = "Destro"
+notes   = "Preferenziale. Finale libera."
+
+[[runway.circuit]]
+runway  = "32"
+pattern = "Sinistro"
+notes   = "Collinetta prima della testata."
+
+# ── Ostacoli ────────────────────────────────────────────────────────────────
+[[runway.obstacles]]
+name     = "Collinetta"
+position = "Prolungamento asse 14"
+distance = "50 m"
