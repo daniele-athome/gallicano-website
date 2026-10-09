@@ -17,10 +17,10 @@ locationName = "Gallicano nel Lazio"
 runway = "14 / 32 · 860 m · Erba"
 frequency = "130.000 MHz"
 elevation = "551 ft AMSL"
-location = "N 41° 53' 50'' — E 12° 47' 00''"
+location = "N 41° 53' 29'' - E 12° 47' 00''"
 footerCopy = "Designed by Daniele Ricci"
 weatherUrl = "https://meteo.aviocaipoli.it"
-mapsUrl = "https://www.google.com/maps/search/?api=1&query=41.891766,12.7806451"
+mapsUrl = "https://www.google.com/maps/search/?api=1&query=41.891534,12.7808601"
 
 [[params.nav]]
 name = "Home"
