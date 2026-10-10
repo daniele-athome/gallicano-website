@@ -305,14 +305,20 @@ def render():
          f'<text {A("lblS", halo=True)} x="150" y="{f(YMOT-26)}">'
          f'Autostrada A1</text>']
 
+    # Fra l'indicatore del nord e l'arco sud-est del circuito c'erano 349 px
+    # di vuoto: ne togliamo meta spostando l'indicatore verso sinistra e
+    # accorciando la tela dello stesso valore, cosi il margine destro resta
+    # quello di prima (59 px).
+    crop_r = 175
+
     o = [thresholds(k, cx, cy),
          landmarks(k, cx, cy),
-         north(934, 700), scalebar(60, 762, 500, k)]
+         north(934 - crop_r, 762), scalebar(60, 762, 500, k)]
 
     # Il disegno piu alto (l'arco nord-ovest del circuito) comincia a y=122,
     # quindi sopra restano 122 px di vuoto: ne togliamo il 65%.
-    return (head(1000, 800, "Pista 14/32: il circuito nei due sensi", css,
-                 top=79)
+    return (head(1000 - crop_r, 800, "Pista 14/32: il circuito nei due sensi",
+                 css, top=79)
             + group(k, cx, cy, "".join(g)) + "".join(o) + "</svg>\n")
 
 
