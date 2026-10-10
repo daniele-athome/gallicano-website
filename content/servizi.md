@@ -1,6 +1,6 @@
 ---
 title: "Servizi"
-description: "Hangaraggio, club house, campeggio sotto l'ala, Wi-Fi e navetta: cosa offre l'Aviocaipoli, e cosa no."
+description: "Hangaraggio, club house, Wi-Fi, officina Rotax: cosa offre l'Aviocaipoli."
 showInfoStrip: true
 ---
 
@@ -44,8 +44,8 @@ sarà libero.
 
 ## Altro a disposizione
 
-- **Estintori**, sia in club house che in hangar.
+- **Estintori** in club house e in hangar.
 - **Aria condizionata** in club house.
-- **Area briefing** con tavolo, sedie e proiettore.
+- **Proiettore video** in area briefing.
 
 Per il resto, i [contatti]({{< relref "contatti" >}}).
