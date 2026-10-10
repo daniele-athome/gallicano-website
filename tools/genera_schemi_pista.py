@@ -311,9 +311,12 @@ def render():
     # quello di prima (59 px).
     crop_r = 175
 
-    o = [thresholds(k, cx, cy),
-         landmarks(k, cx, cy),
-         north(934 - crop_r, 762), scalebar(60, 762, 500, k)]
+    o = [
+        thresholds(k, cx, cy),
+        landmarks(k, cx, cy),
+        north(934 - crop_r, 762),
+        # scalebar(60, 762, 500, k),
+    ]
 
     # Il disegno piu alto (l'arco nord-ovest del circuito) comincia a y=122,
     # quindi sopra restano 122 px di vuoto: ne togliamo il 65%.
