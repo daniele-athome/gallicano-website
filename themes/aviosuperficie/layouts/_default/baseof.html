@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Locale | default "it" }}">
 <head>
+  <base href="{{ .Site.BaseURL }}">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ if .IsHome }}{{ .Site.Params.siteName }} · {{ .Site.Params.siteSubtitle }}{{ else }}{{ .Title }} · {{ .Site.Params.siteName }}{{ end }}</title>
