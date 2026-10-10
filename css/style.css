@@ -675,6 +675,59 @@ a:hover { color: var(--text-primary); }
   color: var(--text-faint);
 }
 
+/* ── SERVIZI (griglia a icone) ──────────────────────────────── */
+/* I selettori partono da .services perche le regole di .page-body sono piu
+   specifiche di una classe sola e vincerebbero su titoli e paragrafi. */
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+.services .service {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.75rem;
+  background: var(--bg-base);
+  transition: background var(--transition);
+}
+
+.services .service:hover { background: var(--bg-surface); }
+
+.services .service__icon {
+  font-size: 38px;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.services .service__title {
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: none;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+/* markdownify non avvolge in <p> un paragrafo singolo, quindi il testo va
+   stilato sul contenitore; la regola su p serve se la scheda ne ha piu di uno. */
+.services .service__text {
+  font-family: var(--font-serif), serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.services .service__text p { margin: 0 0 0.75rem; }
+.services .service__text p:last-child { margin-bottom: 0; }
+
 /* ── 404 ────────────────────────────────────────────────────── */
 .notfound {
   display: flex;
@@ -843,6 +896,7 @@ a:hover { color: var(--text-primary); }
   }
   .page-content { padding-block: 3rem; }
   .map__frame { aspect-ratio: 4 / 3; }
+  .services { grid-template-columns: 1fr; }
   .page-content > p:first-of-type { font-size: 17px; }
 
   .footer__inner { flex-direction: column; align-items: flex-start; }
