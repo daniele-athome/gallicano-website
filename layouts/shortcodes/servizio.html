@@ -1,0 +1,16 @@
+{{- /* Scheda di un servizio, con icona Tabler grande.
+       Va dentro {{< servizi >}}. Il nome dell'icona e senza il prefisso "ti-":
+       l'elenco completo sta su tabler.io/icons. */ -}}
+{{- $icona := .Get "icona" -}}
+{{- $titolo := .Get "titolo" -}}
+{{- if not $icona -}}
+  {{- errorf "shortcode servizio: manca il parametro icona — %s" .Position -}}
+{{- end -}}
+{{- if not $titolo -}}
+  {{- errorf "shortcode servizio: manca il parametro titolo — %s" .Position -}}
+{{- end -}}
+<article class="service">
+  <i class="ti ti-{{ $icona }} service__icon" aria-hidden="true"></i>
+  <h3 class="service__title">{{ $titolo }}</h3>
+  <div class="service__text">{{ .Inner | markdownify }}</div>
+</article>
