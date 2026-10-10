@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" class="dia" role="img" aria-labelledby="t d">
+<title id="t">Pista 14/32: il circuito nei due sensi</title>
+<desc id="d">Schema dell'aviosuperficie visto dall'alto su mappa orientata a nord. La pista 14/32 corre da nord-ovest a sud-est. I circuiti di traffico si sviluppano entrambi a sud-ovest della pista: destro per la 14, sinistro per la 32, quindi lo stesso corridoio percorso nei due sensi. Sul sottovento, all'altezza della testata 14, si trova un castello; piu a sud-ovest corre l'autostrada. La manica a vento e a est della pista.</desc>
+<style>
+    .dia {
+      --ink: var(--text-primary,#1a1a1a); --mut: var(--text-muted,#5a6470);
+      --fnt: var(--text-faint,#a0aab4);   --acc: var(--gold,#9a6f2a);
+      --dim: var(--gold-dim,#c4a060);     --surf: var(--bg-surface,#edeae4);
+      --elev: var(--bg-elevated,#e4e0d8); --base: var(--bg-base,#f5f3ef);
+    }
+    @media (prefers-color-scheme: dark) {
+      .dia {
+        --ink: var(--text-primary,#e8e4dc); --mut: var(--text-muted,#8a9ba8);
+        --fnt: var(--text-faint,#4a5662);   --acc: var(--gold,#c8a96e);
+        --dim: var(--gold-dim,#8a6f3a);     --surf: var(--bg-surface,#111820);
+        --elev: var(--bg-elevated,#161e2a); --base: var(--bg-base,#0d1117);
+      }
+    }
+    .dia text { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; }
+    .halo { stroke: var(--base); stroke-width:6px; stroke-linejoin:round;
+             paint-order:stroke; }
+    .lbl  { font-size:17px; font-weight:500; letter-spacing:.14em;
+             text-transform:uppercase; fill: var(--mut); }
+    .lblS { font-size:13px; font-weight:400; letter-spacing:.16em;
+             text-transform:uppercase; fill: var(--fnt); }
+    .thr  { font-size:36px; font-weight:700; letter-spacing:.04em;
+             fill: var(--ink); }
+    .rwy    { fill: var(--elev); stroke: var(--ink); stroke-width:1.6; }
+    .thrBar { stroke: var(--ink); stroke-width:3; }
+    .axis   { stroke: var(--surf); stroke-width:1.4; stroke-dasharray:9 9; }
+    .road   { stroke: var(--mut); fill:none; stroke-width:3; }
+    .roadM  { stroke: var(--base); stroke-width:1.2; fill:none; }
+    .pict   { fill:none; stroke: var(--ink); stroke-width:1.8;
+               stroke-linejoin:round; }
+    .pictF  { fill: var(--base); stroke: var(--ink); stroke-width:1.8;
+               stroke-linejoin:round; }
+    .sockC  { fill: var(--acc); stroke:none; }
+    
+    .c32 { fill:none; stroke: var(--mut); stroke-width:2.2;
+           stroke-dasharray:13 8; }
+    .a32 { fill: var(--mut); stroke:none; }
+    
+    </style>
+<g transform="translate(500,325) rotate(50) scale(1)"><line class="road" fill="none" stroke="#5a6470" stroke-width="3" x1="-900" y1="277.5" x2="900" y2="277.5"/><line class="road" fill="none" stroke="#5a6470" stroke-width="3" x1="-900" y1="284.1" x2="900" y2="284.1"/><line class="roadM" fill="none" stroke="#f5f3ef" x1="-900" y1="280.8" x2="900" y2="280.8"/><path class="c32" fill="none" stroke="#5a6470" d="M-225.5,0 H225.5 A80,80 0 0 1 305.5,80 V148.4 A80,80 0 0 1 225.5,228.4 H-225.5 A80,80 0 0 1 -305.5,148.4 V80 A80,80 0 0 1 -225.5,0 Z"/><path class="a32" fill="#5a6470" d="M-20,228.4 L-35,234.8 L-35,222 Z"/><path class="a32" fill="#5a6470" d="M160,228.4 L145,234.8 L145,222 Z"/><path class="a32" fill="#5a6470" d="M-180,228.4 L-165,222 L-165,234.8 Z"/><path class="a32" fill="#5a6470" d="M-305.5,104.2 L-299.1,119.2 L-311.9,119.2 Z"/><path class="a32" fill="#5a6470" d="M305.5,104.2 L311.9,119.2 L299.1,119.2 Z"/><rect class="rwy" fill="#e4e0d8" stroke="#1a1a1a" x="-115" y="-8" width="230" height="16" rx="1"/><line class="thrBar" fill="none" stroke="#1a1a1a" x1="-111" y1="-6.5" x2="-111" y2="6.5"/><line class="thrBar" fill="none" stroke="#1a1a1a" x1="111" y1="-6.5" x2="111" y2="6.5"/><line class="axis" fill="none" stroke="#edeae4" x1="-101" y1="0" x2="101" y2="0"/><text class="halo lblS" fill="#a0aab4" stroke="#f5f3ef" stroke-width="6" stroke-linejoin="round" paint-order="stroke" x="205" y="254.8">Autostrada</text></g>
+<text class="halo thr" fill="#1a1a1a" stroke="#f5f3ef" stroke-width="6" stroke-linejoin="round" paint-order="stroke" x="457.1" y="158.7" text-anchor="middle">14</text><text class="halo thr" fill="#1a1a1a" stroke="#f5f3ef" stroke-width="6" stroke-linejoin="round" paint-order="stroke" x="656.3" y="396.2" text-anchor="middle">32</text><path class="pictF" fill="#f5f3ef" stroke="#1a1a1a" d="M267.7,370.2 L267.7,345.2 L273.7,345.2 L273.7,351.2 L279.7,351.2 L279.7,345.2 L285.7,345.2 L285.7,351.2 L291.7,351.2 L291.7,345.2 L297.7,345.2 L297.7,370.2 Z"/><text class="halo lbl" fill="#5a6470" stroke="#f5f3ef" stroke-width="6" stroke-linejoin="round" paint-order="stroke" x="282.7" y="393.2" text-anchor="middle">Castello</text><line class="pict" fill="none" stroke="#1a1a1a" x1="564.8" y1="330.7" x2="564.8" y2="298.7"/><path class="sockC" fill="#9a6f2a" d="M566.8,298.7 L590.8,303.7 L590.8,310.7 L566.8,312.7 Z"/><circle class="pictF" fill="#f5f3ef" stroke="#1a1a1a" cx="564.8" cy="330.7" r="2.8"/><text class="halo lbl" fill="#5a6470" stroke="#f5f3ef" stroke-width="6" stroke-linejoin="round" paint-order="stroke" x="598.8" y="322.7">Manica a vento</text><line class="pict" fill="none" stroke="#1a1a1a" x1="934" y1="700" x2="934" y2="668"/><path class="sockC" fill="#9a6f2a" d="M934,654 L927,672 L934,667 L941,672 Z"/><text class="halo lbl" fill="#5a6470" stroke="#f5f3ef" stroke-width="6" stroke-linejoin="round" paint-order="stroke" x="934" y="719" text-anchor="middle">N</text><line class="pict" fill="none" stroke="#1a1a1a" stroke-width="1.4" x1="60" y1="762" x2="193.7" y2="762"/><line class="pict" fill="none" stroke="#1a1a1a" stroke-width="1.4" x1="60" y1="757" x2="60" y2="767"/><line class="pict" fill="none" stroke="#1a1a1a" stroke-width="1.4" x1="193.7" y1="757" x2="193.7" y2="767"/><text class="halo lblS" fill="#a0aab4" stroke="#f5f3ef" stroke-width="6" stroke-linejoin="round" paint-order="stroke" x="126.9" y="751" text-anchor="middle">500 m</text></svg>
