@@ -263,8 +263,8 @@ def landmarks(k, cx, cy, sock_scale=1.0, sub=True):
 
 
 def thresholds(k, cx, cy, sub14="", sub32=""):
-    a = loc(-L - 40, -74, k, cx, cy)
-    b = loc(L + 40, -74, k, cx, cy)
+    a = loc(-L - 20, -44, k, cx, cy)
+    b = loc(L + 40, -44, k, cx, cy)
     o = []
     for (x, y), n, s in ((a, "14", sub14), (b, "32", sub32)):
         o.append(f'<text {A("thr", halo=True)} x="{f(x)}" y="{f(y)}" '
