@@ -224,9 +224,13 @@ def motorway(width=3.0, mid=True):
     return "".join(out)
 
 
-def head(w, h, title, css=""):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" '
-            f'width="{w}" height="{h}" class="dia" role="img" '
+def head(w, h, title, css="", top=0):
+    """top: px di vuoto da togliere in alto. Sposta l'origine del viewBox
+    invece di ricalcolare le coordinate, cosi il disegno resta identico e
+    il ritaglio si regola con un numero solo."""
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" '
+            f'viewBox="0 {top} {w} {h - top}" '
+            f'width="{w}" height="{h - top}" class="dia" role="img" '
             f'aria-labelledby="t d">\n<title id="t">{title}</title>\n'
             f'<desc id="d">{DESC}</desc>\n<style>{palette(css)}</style>\n')
 
@@ -305,7 +309,10 @@ def render():
          landmarks(k, cx, cy),
          north(934, 700), scalebar(60, 762, 500, k)]
 
-    return (head(1000, 800, "Pista 14/32: il circuito nei due sensi", css)
+    # Il disegno piu alto (l'arco nord-ovest del circuito) comincia a y=122,
+    # quindi sopra restano 122 px di vuoto: ne togliamo il 65%.
+    return (head(1000, 800, "Pista 14/32: il circuito nei due sensi", css,
+                 top=79)
             + group(k, cx, cy, "".join(g)) + "".join(o) + "</svg>\n")
 
 
