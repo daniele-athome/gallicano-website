@@ -456,7 +456,7 @@ a:hover { color: var(--text-primary); }
 
 /* ── PAGE HERO (inner pages) ────────────────────────────────── */
 .page-hero {
-  padding: 4rem 0 3rem;
+  padding: 2rem 0 2rem;
   border-bottom: 1px solid var(--border);
   background: var(--bg-surface);
   position: relative;
@@ -509,7 +509,8 @@ a:hover { color: var(--text-primary); }
 
 /* ── PROSE (inner pages & home intro) ───────────────────────── */
 .page-body {
-  padding-block: 4rem;
+  padding-block-start: 0;
+  padding-block-end: 4rem;
   max-width: 800px;
 }
 
@@ -833,8 +834,13 @@ a:hover { color: var(--text-primary); }
   .infostrip__item:last-child { border-bottom: none; }
 
   .container { padding-inline: 1.25rem; }
-  .page-hero { padding: 2.5rem 0 2rem; }
-  .page-body { padding-block: 2.5rem; }
+  .page-hero {
+    padding: 1.5rem 0 1rem;
+  }
+  .page-body {
+    padding-block-start: 0;
+    padding-block-end: 2.5rem;
+  }
   .page-content { padding-block: 3rem; }
   .map__frame { aspect-ratio: 4 / 3; }
   .page-content > p:first-of-type { font-size: 17px; }

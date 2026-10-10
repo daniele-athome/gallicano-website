@@ -48,7 +48,7 @@ L = RWY_U / 2                          # semi-lunghezza pista
 HW = 60.0 * U / 2                      # semi-larghezza (60 m)
 W = 700.0 * U                          # sottovento, scostamento dall'asse
 E = L + 600.0 * U                      # semi-lunghezza del circuito
-YMOT = 1050.0 * U                      # autostrada
+YMOT = 1250.0 * U                      # autostrada
 
 CASTLE = (-L, W)                       # sul sottovento, all'altezza della 14
 SOCK = (46.0, -46.0)                   # manica a vento, lato est
@@ -271,119 +271,8 @@ def thresholds(k, cx, cy, sub14="", sub32=""):
     return "".join(o)
 
 
-# ──────────────────────────────────────────────────────────── bozza 1
-def draft1():
-    k, cx, cy = 1.0, 500.0, 325.0
-    css = """
-    .circ { fill:none; stroke: var(--acc); stroke-width:2.4;
-            stroke-dasharray:15 9; }
-    .arr  { fill: var(--acc); stroke:none; }
-    """
-    g = [f'<path {A("circ")} d="{racetrack(W)}"/>',
-         arrow(-20, W, -1, 0), arrow(150, W, 1, 0),
-         motorway(),
-         runway(),
-         f'<text {A("lblS", halo=True)} x="205" y="{f(YMOT-26)}">'
-         f'Autostrada</text>',
-         f'<text {A("lblS", halo=True)} x="26" y="{f(W+34)}">Sottovento</text>']
-
-    a14 = loc(-20, W - 30, k, cx, cy)
-    a32 = loc(150, W - 30, k, cx, cy)
-    o = [thresholds(k, cx, cy),
-         landmarks(k, cx, cy),
-         f'<text {A("lbl", halo=True)} x="{f(a14[0])}" y="{f(a14[1])}" '
-         f'text-anchor="middle">14</text>',
-         f'<text {A("lbl", halo=True)} x="{f(a32[0])}" y="{f(a32[1])}" '
-         f'text-anchor="middle">32</text>',
-         north(928, 96), scalebar(60, 762, 500, k),
-         f'<text {A("lblS", halo=True)} x="940" y="724" text-anchor="end">'
-         f'Circuiti a sud-ovest</text>',
-         f'<text {A("lblS", halo=True)} x="940" y="746" text-anchor="end">'
-         f'14 destro · 32 sinistro</text>']
-
-    return (head(1000, 800, "Pista 14/32 e circuito di traffico", css)
-            + group(k, cx, cy, "".join(g)) + "".join(o) + "</svg>\n")
-
-
-# ──────────────────────────────────────────────────────────── bozza 2
-def draft2():
-    k, cx, cy = 1.0, 500.0, 325.0
-    W14, W32 = W * 0.72, W * 1.22
-    css = """
-    .c14  { fill:none; stroke: var(--acc); stroke-width:2.8; }
-    .c32  { fill:none; stroke: var(--mut); stroke-width:2.2;
-            stroke-dasharray:13 8; }
-    .a14  { fill: var(--acc); stroke:none; }
-    .a32  { fill: var(--mut);  stroke:none; }
-    .field{ fill: var(--surf); stroke:none; opacity:.6; }
-    .legbox{ fill: var(--surf); stroke: var(--fnt); stroke-width:1; opacity:.92; }
-    """
-    g = [motorway(),
-         f'<path {A("c32")} d="{racetrack(W32, E + 30, 80)}"/>',
-         f'<path {A("c14")} d="{racetrack(W14, E, 62)}"/>',
-         arrow(-40, W14, -1, 0, 11, "a14"), arrow(140, W14, -1, 0, 11, "a14"),
-         arrow(-30, W32, 1, 0, 10, "a32"), arrow(150, W32, 1, 0, 10, "a32"),
-         runway(),
-         f'<text {A("lblS", halo=True)} x="205" y="{f(YMOT-26)}">'
-         f'Autostrada</text>']
-
-    lx, ly = 716, 60
-    o = [thresholds(k, cx, cy),
-         landmarks(k, cx, cy),
-         north(934, 700), scalebar(60, 762, 500, k),
-         f'<rect {A("legbox")} x="{lx}" y="{ly}" width="238" height="118" rx="2"/>',
-         f'<line {A("c14")} x1="{lx+20}" y1="{ly+36}" x2="{lx+64}" y2="{ly+36}"/>',
-         f'<text {A("lbl")} x="{lx+78}" y="{ly+41}">14 · destro</text>',
-         f'<line {A("c32")} x1="{lx+20}" y1="{ly+68}" x2="{lx+64}" y2="{ly+68}"/>',
-         f'<text {A("lbl")} x="{lx+78}" y="{ly+73}">32 · sinistro</text>',
-         f'<text {A("lblS")} x="{lx+20}" y="{ly+100}">Entrambi a sud-ovest</text>']
-
-    return (head(1000, 800, "Pista 14/32: i due circuiti", css)
-            + group(k, cx, cy, "".join(g)) + "".join(o) + "</svg>\n")
-
-
-# ──────────────────────────────────────────────────────────── bozza 3
-def draft3():
-    k, cx, cy = 0.80, 392.0, 258.0
-    css = """
-    .band { fill: var(--acc); opacity:.07; stroke:none; }
-    .circ { fill:none; stroke: var(--acc); stroke-width:3.6; }
-    .arr  { fill: var(--acc); stroke:none; }
-    .rwy  { fill: var(--ink); stroke:none; }
-    .axis { stroke: var(--base); stroke-width:2; stroke-dasharray:11 10; }
-    .road { stroke: var(--mut); fill:none; }
-    .big  { font-size:64px; font-weight:700; letter-spacing:.03em;
-            fill: var(--ink); text-transform:uppercase; stroke:none; }
-    .sub  { font-size:19px; font-weight:400; letter-spacing:.2em;
-            fill: var(--mut); text-transform:uppercase; stroke:none; }
-    .rule { stroke: var(--acc); stroke-width:2; }
-    """
-    g = [f'<path {A("band")} opacity=".07" d="{racetrack(W)}"/>',
-         motorway(3.4),
-         f'<path {A("circ")} d="{racetrack(W)}"/>',
-         arrow(-30, W, -1, 0, 15), arrow(150, W, 1, 0, 15),
-         runway(solid=True),
-         f'<text {A("lblS", halo=True)} x="55" y="{f(YMOT-24)}">'
-         f'Autostrada</text>']
-
-    tx = 680
-    o = [thresholds(k, cx, cy),
-         landmarks(k, cx, cy, 1.1, sub=False),
-         north(1332, 100),
-         f'<text {A("sub")} x="{tx}" y="238">Aviosuperficie RM24</text>',
-         f'<text {A("big")} x="{tx}" y="308">Pista 14 / 32</text>',
-         f'<line {A("rule")} x1="{tx}" y1="338" x2="{tx+96}" y2="338"/>',
-         f'<text {A("sub")} x="{tx}" y="382">860 m · erba · 551 ft</text>',
-         f'<text {A("sub")} x="{tx}" y="414">Circuiti a sud-ovest</text>',
-         f'<text {A("sub")} x="{tx}" y="446">14 destro · 32 sinistro</text>',
-         scalebar(tx, 516, 500, k)]
-
-    return (head(1400, 640, "Pista 14/32 — schema di apertura", css)
-            + group(k, cx, cy, "".join(g)) + "".join(o) + "</svg>\n")
-
-
 # ─────────────────────────────────────────── bozza 2b: circuito unico
-def draft2b():
+def render():
     """Variante della 2: un solo tracciato tratteggiato percorso nei due sensi.
 
     Entrambi i circuiti cadono a sud-ovest, quindi condividono il corridoio:
@@ -409,8 +298,8 @@ def draft2b():
          arrow(-e, W2 / 2, 0, -1, 10, "a32"),   # base 14 -> finale per la 14
          arrow(e, W2 / 2, 0, -1, 10, "a32"),    # base 32 -> finale per la 32
          runway(),
-         f'<text {A("lblS", halo=True)} x="205" y="{f(YMOT-26)}">'
-         f'Autostrada</text>']
+         f'<text {A("lblS", halo=True)} x="150" y="{f(YMOT-26)}">'
+         f'Autostrada A1</text>']
 
     o = [thresholds(k, cx, cy),
          landmarks(k, cx, cy),
@@ -421,10 +310,6 @@ def draft2b():
 
 
 OUT.mkdir(parents=True, exist_ok=True)
-for name, fn in (("schema-1-tecnico", draft1),
-                 ("schema-2-circuiti", draft2),
-                 ("schema-3-banner", draft3),
-                 ("schema-2b-circuito-unico", draft2b)):
-    p = OUT / f"{name}.svg"
-    p.write_text(fn(), encoding="utf-8")
-    print(f"{p.name}  {p.stat().st_size} byte")
+p = OUT / "runway-patterns.new.svg"
+p.write_text(render(), encoding="utf-8")
+print(f"{p.name}  {p.stat().st_size} byte")
