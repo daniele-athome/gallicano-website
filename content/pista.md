@@ -4,7 +4,7 @@ description: "Scheda operativa RM24: dati pista, sequenza di arrivo, circuito, o
 showInfoStrip: true
 ---
 
-![Schema pista e circuiti](/images/pista/runway-patterns.svg)
+![Schema pista e circuiti](images/pista/runway-patterns.svg)
 
 | Identificazione | |
 |---|---|
