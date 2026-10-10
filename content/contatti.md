@@ -9,7 +9,7 @@ showInfoStrip: true
 |                |                                                                      |
 |----------------|----------------------------------------------------------------------|
 | **Coordinate** | [{{< param "runway.coordinates" >}}]({{< param "runway.mapsUrl" >}}) |
-| **Indirizzo**  | Via Caipoli, km 2 — {{< param "runway.locality" >}}                  |
+| **Indirizzo**  | Via Caipoli, km 2.3 — {{< param "runway.locality" >}}                  |
 | **Elevazione** | {{< param "runway.elevation" >}}                                     |
 
 ## Come raggiungerci
