@@ -47,5 +47,3 @@ sarà libero.
 - **Estintori** in club house e in hangar.
 - **Aria condizionata** in club house.
 - **Proiettore video** in area briefing.
-
-Per il resto, i [contatti]({{< relref "contatti" >}}).
