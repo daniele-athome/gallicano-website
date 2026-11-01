@@ -1,0 +1,33 @@
+{{- /* La vista dall'alto di una testata, con la sigla QFU sopra la foto e
+       sotto le due o tre cose da riconoscere in finale.
+
+       {{< testata qfu="14" src="foto/aeree/14-finale.jpg" circuito="Destro" >}}
+       - **Gallicano** davanti a sinistra, sul fianco della collina.
+       - Il filare di alberi che chiude il campo sulla soglia.
+       {{< /testata >}}
+
+       Va dentro {{< testate >}}. src e circuito sono facoltativi: senza src si
+       vede il segnaposto 16:9, senza circuito il sottotitolo sparisce. */ -}}
+{{- $qfu := .Get "qfu" -}}
+{{- if not $qfu -}}
+  {{- errorf "shortcode testata: manca il parametro qfu — %s" .Position -}}
+{{- end -}}
+<article class="testata">
+  <div class="testata__vista">
+    {{ partial "foto.html" (dict
+         "src"     (.Get "src")
+         "alt"     (printf "Il campo dall'alto in finale per la pista %s" $qfu)
+         "tipo"    "aerea"
+         "formato" "16:9") }}
+    <span class="testata__qfu" aria-hidden="true">{{ $qfu }}</span>
+  </div>
+  <h3 class="testata__titolo">
+    Finale per {{ $qfu }}
+    {{- with .Get "circuito" }}
+    <span class="testata__circuito">circuito {{ lower . }}</span>
+    {{- end }}
+  </h3>
+  {{- with .Inner }}
+  <div class="testata__note">{{ . | markdownify }}</div>
+  {{- end }}
+</article>

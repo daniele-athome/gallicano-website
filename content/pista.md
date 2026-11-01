@@ -2,36 +2,37 @@
 title: "La pista"
 description: "Scheda operativa RM24: dati pista, sequenza di arrivo, circuito, ostacoli e limitazioni."
 showInfoStrip: true
+heroImage: "foto/aeree/32-panoramica.jpg"
+heroImagePosition: "center 40%"
 ---
 
 ![Schema pista e circuiti](images/pista/runway-patterns.svg)
 
-| Identificazione | |
-|---|---|
-| Codice | {{< param "runway.code" >}} ([Avioportolano]({{< param "runway.avioportolanoUrl" >}})) |
-| Località | {{< param "runway.locality" >}} |
-| Coordinate | [{{< param "runway.coordinates" >}}]({{< param "runway.mapsUrl" >}}) |
-| Elevazione | {{< param "runway.elevation" >}} |
-| Stato | {{< param "runway.status" >}} |
+| Identificazione |                                                                                        |
+|-----------------|----------------------------------------------------------------------------------------|
+| Codice          | {{< param "runway.code" >}} ([Avioportolano]({{< param "runway.avioportolanoUrl" >}})) |
+| Località        | {{< param "runway.locality" >}}                                                        |
+| Coordinate      | [{{< param "runway.coordinates" >}}]({{< param "runway.mapsUrl" >}})                   |
+| Elevazione      | {{< param "runway.elevation" >}}                                                       |
 
-| Pista | |
-|---|---|
+| Pista            |                                        |
+|------------------|----------------------------------------|
 | **Orientamento** | **{{< param "runway.orientation" >}}** |
-| Dimensioni | {{< param "runway.dimensions" >}} |
-| Superficie | {{< param "runway.surface" >}} |
-| Pendenza | {{< param "runway.slope" >}} |
-| Maniche a vento | {{< param "runway.windsocks" >}} |
+| Dimensioni       | {{< param "runway.dimensions" >}}      |
+| Superficie       | {{< param "runway.surface" >}}         |
+| Pendenza         | {{< param "runway.slope" >}}           |
+| Maniche a vento  | {{< param "runway.windsocks" >}}       |
 
-| Radio e operatività | |
-|---|---|
-| Frequenza | {{< param "runway.frequency" >}} — autoinformazione |
-| Servizio di controllo | {{< param "runway.radioService" >}} |
-| Orari | {{< param "runway.hours" >}} |
-| Preavviso | {{< param "runway.priorNotice" >}} |
-| **Traffico ammesso** | **{{< param "runway.trafficAllowed" >}}** |
-| Scuola di volo | {{< param "runway.flightSchool" >}} |
-| Spazio aereo | {{< param "runway.airspace" >}} |
-| Meteo in campo | [meteo.aviocaipoli.it]({{< param weatherUrl >}}) |
+| Radio e operatività   |                                                     |
+|-----------------------|-----------------------------------------------------|
+| Frequenza             | {{< param "runway.frequency" >}} — autoinformazione |
+| Servizio di controllo | {{< param "runway.radioService" >}}                 |
+| Orari                 | {{< param "runway.hours" >}}                        |
+| Preavviso             | {{< param "runway.priorNotice" >}}                  |
+| **Traffico ammesso**  | **{{< param "runway.trafficAllowed" >}}**           |
+| Scuola di volo        | {{< param "runway.flightSchool" >}}                 |
+| Spazio aereo          | {{< param "runway.airspace" >}}                     |
+| Meteo in campo        | [meteo.aviocaipoli.it]({{< param weatherUrl >}})    |
 
 ## In arrivo
 
@@ -40,6 +41,23 @@ showInfoStrip: true
 3. **Sottovento** — {{< param "runway.circuitAltitude" >}} ({{< param "runway.circuitHeight" >}} sul campo), sempre a {{< param "runway.circuitSide" >}} della pista.
 4. **Finale** — profilo di discesa normale, non anticipare la soglia.
 5. **Dopo l'atterraggio** — liberare la pista, parcheggio sul lato est.
+
+## Le testate
+
+{{< testate >}}
+{{< testata qfu="14" src="foto/aeree/14-finale.jpg" circuito="Destro" >}}
+- **Finale libero**, nessun ostacolo sull'asse.
+- **Gallicano nel Lazio** davanti a sinistra, sul fianco della collina.
+- Hangar e parcheggio sul lato **sinistro**.
+- Il circuito si sviluppa sulla **destra** dell'immagine.
+{{< /testata >}}
+{{< testata qfu="32" src="foto/aeree/32-finale.jpg" circuito="Sinistro" >}}
+- **Collinetta a 50 m dalla soglia** — possibili _wind shears_.
+- Hangar e parcheggio sul lato **destro**.
+- Il circuito si sviluppa sulla **sinistra** dell'immagine.
+- Oltre il campo si apre la piana, senza riferimenti vicini.
+{{< /testata >}}
+{{< /testate >}}
 
 ## Circuito
 
@@ -50,6 +68,9 @@ Entrambi i circuiti si sviluppano a **{{< param "runway.circuitSide" >}}**.
 ## Ostacoli
 
 {{% pista-ostacoli %}}
+
+{{< foto src="foto/aeree/14-hover.jpg" tipo="aerea" formato="16:9"
+         didascalia="La pista **14** dall'alto, con la collinetta sul prolungamento in lontananza." >}}
 
 ## Avvertenze
 
@@ -65,18 +86,6 @@ Entrambi i circuiti si sviluppano a **{{< param "runway.circuitSide" >}}**.
 - Nessun rifornimento in campo — vedi [servizi]({{< relref "servizi" >}}).
 - Nessuna assistenza al volo, nessun servizio antincendio.
 
-## Il campo dall'alto
-
-![Finale per pista 14](/images/pista/14-finale.jpg)
-*14 — finale. Gallicano sulla sinistra, filare di alberi sulla soglia.*
-
-![Il campo dalla testata 14](/images/pista/14-obliqua.jpg)
-*14 — obliqua. Pista, maniche a vento, parcheggio sul lato ovest.*
-
-![Finale per pista 32](/images/pista/32-finale.jpg)
-*32 — finale. Linea elettrica trasversale, strada comunale oltre.*
-
-![Il campo dalla testata 32](/images/pista/32-obliqua.jpg)
-*32 — obliqua. Il circuito si sviluppa sul lato in basso a destra.*
+{{< foto src="foto/aeree/32-ottobre.jpg" tipo="aerea" formato="16:9" >}}
 
 Informazioni e stato del campo: [contatti]({{< relref "contatti" >}}).

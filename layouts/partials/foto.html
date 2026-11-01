@@ -1,0 +1,53 @@
+{{- /* Una foto, o il suo segnaposto se il file non c'e ancora.
+
+       partial "foto.html" (dict
+         "src"        "foto/aereo-01.jpg"   percorso dentro assets/
+         "alt"        "Testo alternativo"
+         "didascalia" "Testo sotto la foto"  facoltativa, markdown in linea
+         "tipo"       "aereo"                aereo | persone | aerea: icona del segnaposto
+         "formato"    "16:9"                 4:3 (default) | 16:9
+         "classe"     "foto--destra")        classi aggiuntive sul <figure>
+
+       formato sceglie solo le proporzioni del riquadro: 4:3 per gli scatti da
+       smartphone, 16:9 per le riprese da drone, che altrimenti verrebbero
+       tagliate sui lati lunghi.
+
+       Le foto stanno in assets/ e non in static/ perche Hugo deve poterle
+       elaborare: AutoOrient raddrizza gli scatti da smartphone che salvano i
+       pixel in orizzontale con il tag EXIF di rotazione, e il ricampionamento
+       riduce file da 3-5 MB a poche centinaia di KB togliendo anche gli EXIF
+       (GPS compreso). Finche il file non esiste si vede un riquadro 4:3. */ -}}
+
+{{- $src := .src | default "" -}}
+{{- $alt := .alt | default .didascalia | default "" -}}
+{{- $icone := dict "aereo" "plane" "persone" "users" "aerea" "drone" -}}
+{{- $icona := index $icone (.tipo | default "") | default "photo" -}}
+{{- $formato := .formato | default "4:3" -}}
+{{- if not (in (slice "4:3" "16:9") $formato) -}}
+  {{- errorf "partial foto: formato %q non valido (usa 4:3 o 16:9)" $formato -}}
+{{- end -}}
+{{- $img := "" -}}
+{{- with $src }}{{ $img = resources.Get . }}{{ end -}}
+
+<figure class="foto foto--{{ if eq $formato "16:9" }}16x9{{ else }}4x3{{ end }} {{ .classe }}">
+  {{- with $img }}
+    {{- $img = .Filter images.AutoOrient -}}
+    {{- $vista := $img.Resize "1000x q80" -}}
+    {{- $grande := $img.Resize "2000x q85" -}}
+  <a href="{{ $grande.RelPermalink }}" class="foto__link" target="_blank">
+    <img class="foto__img" src="{{ $vista.RelPermalink }}" width="{{ $vista.Width }}" height="{{ $vista.Height }}"
+         alt="{{ $alt | plainify }}" loading="lazy" />
+  </a>
+  {{- else }}
+  <div class="foto__vuota" role="img" aria-label="Segnaposto: {{ $alt | plainify }}">
+    <i class="ti ti-{{ $icona }}" aria-hidden="true"></i>
+    <span class="foto__formato">Foto orizzontale {{ $formato }}</span>
+    {{- with $src }}
+    <code class="foto__file">{{ . }}</code>
+    {{- end }}
+  </div>
+  {{- end }}
+  {{- with .didascalia }}
+  <figcaption class="foto__didascalia">{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>

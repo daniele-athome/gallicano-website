@@ -471,7 +471,44 @@ a:hover { color: var(--text-primary); }
     repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(200,169,110,0.03) 79px, rgba(200,169,110,0.03) 80px);
 }
 
-.page-hero .container { position: relative; }
+.page-hero .container { position: relative; z-index: 1; }
+
+/* Hero con foto (param heroImage): stesso trattamento della home — la foto
+   copre la fascia e sfuma verso sinistra, cioe sotto il titolo, che resta
+   leggibile sul fondo della pagina invece che sull'immagine. */
+.page-hero--foto {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4.5rem 0 2.5rem;
+}
+
+.page-hero--foto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--page-hero-img) no-repeat var(--page-hero-pos, center) / cover;
+  /* La sfumatura si spegne piu presto che in home: qui sotto il titolo c'e
+     anche la descrizione, che e piccola e in corsivo e sull'immagine non si
+     leggerebbe. */
+  -webkit-mask-image: linear-gradient(to left, black 15%, transparent 62%);
+  mask-image:         linear-gradient(to left, black 15%, transparent 62%);
+}
+
+.page-hero--foto .page-hero__title,
+.page-hero--foto .page-hero__sub { max-width: 34rem; }
+
+.page-hero__bar {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent 60%);
+}
 
 .breadcrumb {
   font-size: 11px;
@@ -728,6 +765,157 @@ a:hover { color: var(--text-primary); }
 .services .service__text p { margin: 0 0 0.75rem; }
 .services .service__text p:last-child { margin-bottom: 0; }
 
+/* ── FOTO ───────────────────────────────────────────────────── */
+/* Foto orizzontali da smartphone, sempre in 4:3: quelle vere sono ritagliate
+   al centro (object-fit), il segnaposto ha le stesse proporzioni. Con il testo
+   a 800px una foto singola fa circa 736 x 552 px, una foto accanto al testo
+   300 x 225. */
+.page-body { display: flow-root; }
+.page-body h2 { clear: both; }
+
+.foto { margin: 2.5rem 0; }
+
+.foto--destra,
+.foto--sinistra {
+  width: 300px;
+  margin-block: 0.4rem 1.5rem;
+}
+
+.foto--destra  { float: right; margin-left: 2rem; }
+.foto--sinistra { float: left; margin-right: 2rem; }
+
+.foto__link { display: block; border: none !important; }
+
+.foto__img,
+.foto__vuota {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border);
+}
+
+/* Le riprese da drone sono 16:9: tagliarle a 4:3 toglierebbe proprio i lati,
+   cioe il terreno intorno alla pista. */
+.foto--16x9 .foto__img,
+.foto--16x9 .foto__vuota { aspect-ratio: 16 / 9; }
+
+.foto__img {
+  height: auto;
+  object-fit: cover;
+  background: var(--bg-surface);
+}
+
+.foto__vuota {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  border: 1px dashed var(--gold-dim);
+  background:
+    repeating-linear-gradient(-45deg, transparent, transparent 11px, rgba(154,111,42,0.07) 11px, rgba(154,111,42,0.07) 12px),
+    var(--bg-elevated);
+}
+
+.foto__vuota .ti {
+  font-size: 40px;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.foto__formato {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.foto__file {
+  font-size: 11px;
+  color: var(--text-faint);
+  word-break: break-all;
+}
+
+.foto__didascalia {
+  margin-top: 0.6rem;
+  font-family: var(--font-serif), serif;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Scheda testata: le due viste in finale, affiancate (pagina Pista) */
+.testate {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin: 2rem 0 3rem;
+}
+
+/* La colonna di testo e larga 800px: due foto affiancate ci starebbero in
+   380px l'una, troppo poco per leggere il terreno intorno alla pista. Dove c'e
+   spazio il blocco esce dalla colonna, restando dentro il container. */
+@media (min-width: 1200px) {
+  .testate { margin-inline: -150px; }
+}
+
+.testata__vista { position: relative; }
+.testata .foto { margin: 0; }
+
+/* La sigla sta sopra la foto, in basso a sinistra, come sul numero di pista:
+   serve a far capire al volo quale testata si sta guardando. */
+.testata__qfu {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0.2rem 0.75rem 0.1rem;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+.page-body .testata__titolo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0.9rem 0 0.5rem;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.testata__circuito {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.testata__note {
+  font-family: var(--font-serif), serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.page-body .testata__note ul { margin: 0; padding-left: 1.1rem; }
+.page-body .testata__note li { margin-bottom: 0.35rem; }
+.page-body .testata__note li:last-child { margin-bottom: 0; }
+
 /* ── 404 ────────────────────────────────────────────────────── */
 .notfound {
   display: flex;
@@ -805,6 +993,17 @@ a:hover { color: var(--text-primary); }
 
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
+  .testate { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* Su schermo stretto non c'e larghezza da dividere tra foto e titolo: la
+     foto diventa una fascia in alto e sfuma verso il basso, dove va il testo. */
+  .page-hero--foto { min-height: 340px; padding-top: 10rem; }
+  .page-hero--foto::after {
+    -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 48%);
+    mask-image:         linear-gradient(to bottom, black 10%, transparent 48%);
+  }
+  .page-hero--foto .page-hero__title,
+  .page-hero--foto .page-hero__sub { max-width: none; }
   .infostrip { grid-template-columns: 1fr 1fr; }
   .infostrip__item:nth-child(2) { border-right: none; }
   .infostrip__item:nth-child(3) { border-top: 1px solid var(--border); }
@@ -905,4 +1104,11 @@ a:hover { color: var(--text-primary); }
 @media (max-width: 480px) {
   .hero__title { letter-spacing: 0; }
   .notfound__code { font-size: 64px; }
+
+  .foto--destra,
+  .foto--sinistra {
+    float: none;
+    width: auto;
+    margin: 2rem 0;
+  }
 }

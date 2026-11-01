@@ -1,0 +1,21 @@
+{{- /* Una foto orizzontale da smartphone (4:3). Se il file non esiste ancora
+       in assets/ mostra un segnaposto delle stesse dimensioni.
+
+       {{< foto src="foto/aereo-01.jpg" tipo="aereo" didascalia="Testo" >}}
+       {{< foto src="..." posizione="destra" >}}   accanto al testo, a destra
+       {{< foto src="..." posizione="sinistra" >}} accanto al testo, a sinistra
+
+       Senza posizione la foto prende tutta la larghezza del testo, altrimenti
+       quella della colonna che la contiene. tipo (aereo | persone | aerea)
+       sceglie l'icona del segnaposto. */ -}}
+{{- $posizione := .Get "posizione" -}}
+{{- if and $posizione (not (in (slice "destra" "sinistra") $posizione)) -}}
+  {{- errorf "shortcode foto: posizione %q non valida (usa destra o sinistra) — %s" $posizione .Position -}}
+{{- end -}}
+{{- partial "foto.html" (dict
+      "src"        (.Get "src")
+      "alt"        (.Get "alt")
+      "didascalia" (.Get "didascalia")
+      "tipo"       (.Get "tipo")
+      "formato"    (.Get "formato")
+      "classe"     (cond (ne $posizione "") (printf "foto--%s" $posizione) "")) -}}

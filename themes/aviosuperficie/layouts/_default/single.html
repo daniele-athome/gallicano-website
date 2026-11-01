@@ -1,6 +1,20 @@
 {{ define "main" }}
 
-<section class="page-hero">
+{{- /* heroImage (facoltativo, percorso dentro assets/) mette una foto dietro
+       il titolo, come in home. heroImagePosition sceglie il punto da tenere
+       nell'inquadratura quando la foto viene ritagliata: stesso valore di
+       background-position, "center" se non specificato. */ -}}
+{{- $hero := "" -}}
+{{- with .Params.heroImage -}}
+  {{- with resources.Get . -}}
+    {{- $hero = (.Filter images.AutoOrient).Resize "2000x q80" -}}
+  {{- else -}}
+    {{- warnf "heroImage: %q non trovato in assets/ — %s" . $.File.Path -}}
+  {{- end -}}
+{{- end -}}
+
+<section class="page-hero{{ with $hero }} page-hero--foto{{ end }}"
+  {{- with $hero }} style="--page-hero-img: url('{{ .RelPermalink }}'); --page-hero-pos: {{ $.Params.heroImagePosition | default "center" }}"{{ end }}>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="{{ "/" | relURL }}">Home</a>
@@ -12,6 +26,7 @@
     <p class="page-hero__sub">{{ . }}</p>
     {{ end }}
   </div>
+  {{ with $hero }}<div class="page-hero__bar" aria-hidden="true"></div>{{ end }}
 </section>
 
 <article class="page-body container">
